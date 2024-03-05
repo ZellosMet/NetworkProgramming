@@ -47,11 +47,11 @@ namespace IP_addressInfo
 		}
 		void GetClass()
 		{
-			if (ip_address[0] >= 1 && ip_address[1] <= 126 && ip_address[3] >= 1 && ip_address[3] <= 254 ) this.web_class = 'A';
-			if (ip_address[0] >= 128 && ip_address[1] <= 191 && ip_address[3] >= 1 && ip_address[3] <= 254 ) this.web_class = 'B';
-			if (ip_address[0] >= 192 && ip_address[1] <= 223 && ip_address[3] >= 1 && ip_address[3] <= 254 ) this.web_class = 'C';
-			if (ip_address[0] >= 224 && ip_address[1] <= 239 && ip_address[3] >= 1 && ip_address[3] <= 254 ) this.web_class = 'D';
-			if (ip_address[0] >= 240 && ip_address[1] <= 255 && ip_address[3] >= 1 && ip_address[3] <= 254 ) this.web_class = 'E';
+			if (ip_address[0] >= 1 && ip_address[1] <= 126 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'A';
+			if (ip_address[0] >= 128 && ip_address[1] <= 191 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'B';
+			if (ip_address[0] >= 192 && ip_address[1] <= 223 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'C';
+			if (ip_address[0] >= 224 && ip_address[1] <= 239 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'D';
+			if (ip_address[0] >= 240 && ip_address[1] <= 255 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'E';
 		}
 		private void tb_KeyPress(object sender, KeyPressEventArgs e)
 		{
@@ -128,13 +128,13 @@ namespace IP_addressInfo
 									Обратная маска: {invert_mask[0]}.{invert_mask[1]}.{invert_mask[2]}.{invert_mask[3]}
 									Адресс сети: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{ip_address[3] & mask[3]}
 									Широковещательный адрес: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{ip_address[3] | invert_mask[3]}
-									IP-адрес 1-го узла: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{(ip_address[3] & mask[3])+1}
-									IP-адрес последнего узла: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{(ip_address[3] | invert_mask[3])-1}
-									Количество узлов в сети: {Math.Pow(2, 32-Convert.ToInt32(tb_MaskNum.Text))-2}
+									IP-адрес 1-го узла: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{(ip_address[3] & mask[3]) + 1}
+									IP-адрес последнего узла: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{(ip_address[3] | invert_mask[3]) - 1}
+									Количество узлов в сети: {Math.Pow(2, 32 - Convert.ToInt32(tb_MaskNum.Text)) - 2}
 									Класс сети: {this.web_class}
 								";
 			}
+			else l_Info.Text = "Заполнены не все поля!";
 		}
-
 	}
 }

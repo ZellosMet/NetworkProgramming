@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IP_addressInfo
 {
-	public partial class Form1 : Form //
+	public partial class Form1 : Form
 	{
 		int[] ip_address = new int[4];
 		int[] mask = new int[4];

@@ -122,17 +122,14 @@ namespace IP_addressInfo
 				ip_address[3] = Convert.ToInt32(tb_FourNum.Text);
 				GetMask(tb_MaskNum.Text);
 				GetClass();
-				l_Info.Text = $@"
-									IP-адрес: {ip_address[0]}.{ip_address[1]}.{ip_address[2]}.{ip_address[3]}
-									Маска сети: {mask[0]}.{mask[1]}.{mask[2]}.{mask[3]}
-									Обратная маска: {invert_mask[0]}.{invert_mask[1]}.{invert_mask[2]}.{invert_mask[3]}
-									Адресс сети: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{ip_address[3] & mask[3]}
-									Широковещательный адрес: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{ip_address[3] | invert_mask[3]}
-									IP-адрес 1-го узла: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{(ip_address[3] & mask[3]) + 1}
-									IP-адрес последнего узла: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{(ip_address[3] | invert_mask[3]) - 1}
-									Количество узлов в сети: {Math.Pow(2, 32 - Convert.ToInt32(tb_MaskNum.Text)) - 2}
-									Класс сети: {this.web_class}
-								";
+				l_Info.Text = $"IP-адрес: {ip_address[0]}.{ip_address[1]}.{ip_address[2]}.{ip_address[3]}\n";
+				l_Info.Text += $"Маска сети: {mask[0]}.{mask[1]}.{mask[2]}.{mask[3]}\n";
+				l_Info.Text += $"Адресс сети: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{ip_address[3] & mask[3]}\n";
+				l_Info.Text += (Convert.ToInt32(tb_MaskNum.Text)<32)? $"Широковещательный адрес: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{ip_address[3] | invert_mask[3]}\n" : "Широковещательный адрес: Не возможно расчитать\n";
+				l_Info.Text += (Convert.ToInt32(tb_MaskNum.Text)<=30)? $"IP-адрес 1-го узла: {ip_address[0] & mask[0]}.{ip_address[1] & mask[1]}.{ip_address[2] & mask[2]}.{(ip_address[3] & mask[3]) + 1}\n" : "IP-адрес 1-го узла: Не возможно расчитать\n";
+				l_Info.Text += (Convert.ToInt32(tb_MaskNum.Text)<=30)? $"IP-адрес последнего узла: {ip_address[0] | invert_mask[0]}.{ip_address[1] | invert_mask[1]}.{ip_address[2] | invert_mask[2]}.{(ip_address[3] | invert_mask[3]) - 1}\n" : "IP-адрес последнего узла: Не возможно расчитать\n";
+				l_Info.Text += (Convert.ToInt32(tb_MaskNum.Text)<=30)? $"Количество узлов в сети: {Math.Pow(2, 32 - Convert.ToInt32(tb_MaskNum.Text)) - 2}\n" : "Количество узлов в сети: 0\n";
+				l_Info.Text += $"Класс сети: {this.web_class}";
 			}
 			else l_Info.Text = "Заполнены не все поля!";
 		}

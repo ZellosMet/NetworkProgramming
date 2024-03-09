@@ -31,130 +31,25 @@ namespace IP_addressInfo
 		private void InitializeComponent()
 		{
 			this.l_Info = new System.Windows.Forms.Label();
-			this.tb_OneNum = new System.Windows.Forms.TextBox();
-			this.tb_TwoNum = new System.Windows.Forms.TextBox();
-			this.tb_TreeNum = new System.Windows.Forms.TextBox();
-			this.tb_FourNum = new System.Windows.Forms.TextBox();
-			this.tb_MaskNum = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
 			this.b_Result = new System.Windows.Forms.Button();
 			this.b_clear = new System.Windows.Forms.Button();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.ipAddressControl1 = new IP_addressInfo.IPAddressControl();
-			this.button1 = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			this.nud_Prefix = new System.Windows.Forms.NumericUpDown();
+			this.iac_IPAddress = new IP_addressInfo.IPAddressControl();
+			this.iac_Mask = new IP_addressInfo.IPAddressControl();
+			((System.ComponentModel.ISupportInitialize)(this.nud_Prefix)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// l_Info
 			// 
 			this.l_Info.AutoSize = true;
-			this.l_Info.Location = new System.Drawing.Point(12, 93);
+			this.l_Info.Location = new System.Drawing.Point(12, 98);
 			this.l_Info.Name = "l_Info";
 			this.l_Info.Size = new System.Drawing.Size(0, 16);
 			this.l_Info.TabIndex = 1;
 			// 
-			// tb_OneNum
-			// 
-			this.tb_OneNum.Location = new System.Drawing.Point(28, 13);
-			this.tb_OneNum.MaxLength = 3;
-			this.tb_OneNum.Name = "tb_OneNum";
-			this.tb_OneNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.tb_OneNum.Size = new System.Drawing.Size(53, 22);
-			this.tb_OneNum.TabIndex = 2;
-			this.tb_OneNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.tb_OneNum.TextChanged += new System.EventHandler(this.tb_FirstNum_TextChanged);
-			this.tb_OneNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
-			// 
-			// tb_TwoNum
-			// 
-			this.tb_TwoNum.Location = new System.Drawing.Point(101, 13);
-			this.tb_TwoNum.MaxLength = 3;
-			this.tb_TwoNum.Name = "tb_TwoNum";
-			this.tb_TwoNum.Size = new System.Drawing.Size(53, 22);
-			this.tb_TwoNum.TabIndex = 6;
-			this.tb_TwoNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.tb_TwoNum.TextChanged += new System.EventHandler(this.tb_TwoNum_TextChanged);
-			this.tb_TwoNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
-			// 
-			// tb_TreeNum
-			// 
-			this.tb_TreeNum.Location = new System.Drawing.Point(177, 13);
-			this.tb_TreeNum.MaxLength = 3;
-			this.tb_TreeNum.Name = "tb_TreeNum";
-			this.tb_TreeNum.Size = new System.Drawing.Size(50, 22);
-			this.tb_TreeNum.TabIndex = 7;
-			this.tb_TreeNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.tb_TreeNum.TextChanged += new System.EventHandler(this.tb_TreeNum_TextChanged);
-			this.tb_TreeNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
-			// 
-			// tb_FourNum
-			// 
-			this.tb_FourNum.Location = new System.Drawing.Point(247, 13);
-			this.tb_FourNum.MaxLength = 3;
-			this.tb_FourNum.Name = "tb_FourNum";
-			this.tb_FourNum.Size = new System.Drawing.Size(53, 22);
-			this.tb_FourNum.TabIndex = 8;
-			this.tb_FourNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.tb_FourNum.TextChanged += new System.EventHandler(this.tb_FourNum_TextChanged);
-			this.tb_FourNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
-			// 
-			// tb_MaskNum
-			// 
-			this.tb_MaskNum.Location = new System.Drawing.Point(321, 13);
-			this.tb_MaskNum.MaxLength = 2;
-			this.tb_MaskNum.Name = "tb_MaskNum";
-			this.tb_MaskNum.Size = new System.Drawing.Size(40, 22);
-			this.tb_MaskNum.TabIndex = 9;
-			this.tb_MaskNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.tb_MaskNum.TextChanged += new System.EventHandler(this.tb_MaskNum_TextChanged);
-			this.tb_MaskNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label2.Location = new System.Drawing.Point(84, 15);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(14, 20);
-			this.label2.TabIndex = 10;
-			this.label2.Text = ".";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label3.Location = new System.Drawing.Point(157, 15);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(14, 20);
-			this.label3.TabIndex = 11;
-			this.label3.Text = ".";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label4.Location = new System.Drawing.Point(230, 15);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(14, 20);
-			this.label4.TabIndex = 12;
-			this.label4.Text = ".";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label5.Location = new System.Drawing.Point(303, 15);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(15, 20);
-			this.label5.TabIndex = 13;
-			this.label5.Text = "/";
-			// 
 			// b_Result
 			// 
-			this.b_Result.Location = new System.Drawing.Point(28, 51);
+			this.b_Result.Location = new System.Drawing.Point(291, 58);
 			this.b_Result.Name = "b_Result";
 			this.b_Result.Size = new System.Drawing.Size(85, 23);
 			this.b_Result.TabIndex = 14;
@@ -164,72 +59,89 @@ namespace IP_addressInfo
 			// 
 			// b_clear
 			// 
-			this.b_clear.Location = new System.Drawing.Point(269, 51);
+			this.b_clear.Location = new System.Drawing.Point(291, 12);
 			this.b_clear.Name = "b_clear";
-			this.b_clear.Size = new System.Drawing.Size(92, 23);
+			this.b_clear.Size = new System.Drawing.Size(85, 23);
 			this.b_clear.TabIndex = 15;
 			this.b_clear.Text = "Очистить";
 			this.b_clear.UseVisualStyleBackColor = true;
 			this.b_clear.Click += new System.EventHandler(this.b_clear_Click);
 			// 
-			// numericUpDown1
+			// nud_Prefix
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(247, 265);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(53, 22);
-			this.numericUpDown1.TabIndex = 19;
+			this.nud_Prefix.Location = new System.Drawing.Point(212, 58);
+			this.nud_Prefix.Maximum = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
+			this.nud_Prefix.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.nud_Prefix.Name = "nud_Prefix";
+			this.nud_Prefix.Size = new System.Drawing.Size(53, 22);
+			this.nud_Prefix.TabIndex = 19;
+			this.nud_Prefix.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.nud_Prefix.ValueChanged += new System.EventHandler(this.nud_Prefix_ValueChanged);
 			// 
-			// ipAddressControl1
+			// iac_IPAddress
 			// 
-			this.ipAddressControl1.BackColor = System.Drawing.SystemColors.Window;
-			this.ipAddressControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.ipAddressControl1.FirstMax = 255;
-			this.ipAddressControl1.FirstMin = 0;
-			this.ipAddressControl1.FourdMax = 255;
-			this.ipAddressControl1.FourdMin = 0;
-			this.ipAddressControl1.Location = new System.Drawing.Point(28, 265);
-			this.ipAddressControl1.Name = "ipAddressControl1";
-			this.ipAddressControl1.SecondMax = 255;
-			this.ipAddressControl1.SecondMin = 0;
-			this.ipAddressControl1.Size = new System.Drawing.Size(180, 25);
-			this.ipAddressControl1.TabIndex = 18;
-			this.ipAddressControl1.Text = "...";
-			this.ipAddressControl1.ThirdMax = 255;
-			this.ipAddressControl1.ThirdMin = 0;
-			this.ipAddressControl1.IPChanched += new IP_addressInfo.EventHandler(this.ipAddressControl1_IPChanched);
+			this.iac_IPAddress.BackColor = System.Drawing.SystemColors.Window;
+			this.iac_IPAddress.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.iac_IPAddress.FirstMax = 255;
+			this.iac_IPAddress.FirstMin = 0;
+			this.iac_IPAddress.FourdMax = 255;
+			this.iac_IPAddress.FourdMin = 0;
+			this.iac_IPAddress.Location = new System.Drawing.Point(12, 12);
+			this.iac_IPAddress.Name = "iac_IPAddress";
+			this.iac_IPAddress.SecondMax = 255;
+			this.iac_IPAddress.SecondMin = 0;
+			this.iac_IPAddress.Size = new System.Drawing.Size(180, 25);
+			this.iac_IPAddress.TabIndex = 21;
+			this.iac_IPAddress.TextIP = "...";
+			this.iac_IPAddress.ThirdMax = 255;
+			this.iac_IPAddress.ThirdMin = 0;
+			this.iac_IPAddress.IPChanched += new IP_addressInfo.EventHandler(this.iac_IPAddress_IPChanched);
 			// 
-			// button1
+			// iac_Mask
 			// 
-			this.button1.Location = new System.Drawing.Point(28, 228);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 20;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
+			this.iac_Mask.BackColor = System.Drawing.SystemColors.Window;
+			this.iac_Mask.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.iac_Mask.FirstMax = 255;
+			this.iac_Mask.FirstMin = 128;
+			this.iac_Mask.FourdMax = 255;
+			this.iac_Mask.FourdMin = 0;
+			this.iac_Mask.Location = new System.Drawing.Point(12, 58);
+			this.iac_Mask.Name = "iac_Mask";
+			this.iac_Mask.SecondMax = 255;
+			this.iac_Mask.SecondMin = 0;
+			this.iac_Mask.Size = new System.Drawing.Size(180, 25);
+			this.iac_Mask.TabIndex = 22;
+			this.iac_Mask.TextIP = "...";
+			this.iac_Mask.ThirdMax = 255;
+			this.iac_Mask.ThirdMin = 0;
+			//this.iac_Mask.IPChanched += new IP_addressInfo.EventHandler(this.iac_Mask_IPChanched);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(388, 302);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.numericUpDown1);
-			this.Controls.Add(this.ipAddressControl1);
+			this.Controls.Add(this.iac_Mask);
+			this.Controls.Add(this.iac_IPAddress);
+			this.Controls.Add(this.nud_Prefix);
 			this.Controls.Add(this.b_clear);
 			this.Controls.Add(this.b_Result);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.tb_MaskNum);
-			this.Controls.Add(this.tb_FourNum);
-			this.Controls.Add(this.tb_TreeNum);
-			this.Controls.Add(this.tb_TwoNum);
-			this.Controls.Add(this.tb_OneNum);
 			this.Controls.Add(this.l_Info);
 			this.Name = "Form1";
 			this.Text = "Form1";
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nud_Prefix)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -237,20 +149,11 @@ namespace IP_addressInfo
 
 		#endregion
 		private System.Windows.Forms.Label l_Info;
-		private System.Windows.Forms.TextBox tb_OneNum;
-		private System.Windows.Forms.TextBox tb_TwoNum;
-		private System.Windows.Forms.TextBox tb_TreeNum;
-		private System.Windows.Forms.TextBox tb_FourNum;
-		private System.Windows.Forms.TextBox tb_MaskNum;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button b_Result;
 		private System.Windows.Forms.Button b_clear;
-		private IPAddressControl ipAddressControl1;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.NumericUpDown nud_Prefix;
+		private IPAddressControl iac_IPAddress;
+		private IPAddressControl iac_Mask;
 	}
 }
 

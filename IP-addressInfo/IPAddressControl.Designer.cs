@@ -41,13 +41,13 @@ namespace IP_addressInfo
 			// 
 			// FirstByte
 			// 
+			this.FirstByte.BackColor = System.Drawing.SystemColors.Window;
 			this.FirstByte.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.FirstByte.Location = new System.Drawing.Point(0, 2);
 			this.FirstByte.MaxLength = 3;
 			this.FirstByte.Name = "FirstByte";
 			this.FirstByte.Size = new System.Drawing.Size(40, 15);
 			this.FirstByte.TabIndex = 0;
-			this.FirstByte.TabStop = false;
 			this.FirstByte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.FirstByte.TextChanged += new System.EventHandler(this.FirstByte_TextChanged);
 			this.FirstByte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
@@ -65,6 +65,7 @@ namespace IP_addressInfo
 			// 
 			// SecondByte
 			// 
+			this.SecondByte.BackColor = System.Drawing.SystemColors.Window;
 			this.SecondByte.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.SecondByte.Location = new System.Drawing.Point(45, 2);
 			this.SecondByte.MaxLength = 3;
@@ -88,6 +89,7 @@ namespace IP_addressInfo
 			// 
 			// ThirdByte
 			// 
+			this.ThirdByte.BackColor = System.Drawing.SystemColors.Window;
 			this.ThirdByte.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.ThirdByte.Location = new System.Drawing.Point(90, 2);
 			this.ThirdByte.MaxLength = 3;
@@ -111,6 +113,7 @@ namespace IP_addressInfo
 			// 
 			// FourthByte
 			// 
+			this.FourthByte.BackColor = System.Drawing.SystemColors.Window;
 			this.FourthByte.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.FourthByte.Location = new System.Drawing.Point(135, 2);
 			this.FourthByte.MaxLength = 3;

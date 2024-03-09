@@ -34,7 +34,7 @@ namespace IP_addressInfo
 		[Browsable(true)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
 		[Bindable(true)]
-		public override string Text
+		public string TextIP
 		{ 
 			get 
 			{ 
@@ -79,7 +79,7 @@ namespace IP_addressInfo
 		private void CheckTextBoxLength(TextBox current_tb, TextBox next_tb) //Проверка на переход
 		{
 			if (current_tb.Text == "") return;
-			if (current_tb.Text.Length == 3)
+			if (current_tb.Text.Length == 3 && current_tb.Focused)
 				next_tb.Focus();
 		}
 		/////////////////////////////////////////////////////////////
@@ -94,29 +94,41 @@ namespace IP_addressInfo
 				EventArgs ef = new EventArgs();
 				IPChanched(sender, ef);
 			}
-			catch (Exception){}
+			catch (Exception){}				
 		}
 
 		private void SecondByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(SecondByte, ThirdByte);
-			EventArgs ef = new EventArgs();
-			IPChanched(sender, ef);
+			try
+			{
+				EventArgs ef = new EventArgs();
+				IPChanched(sender, ef);
+			}
+			catch (Exception) { }
 		}
 
 		private void ThirdByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(ThirdByte, FourthByte);
-			EventArgs ef = new EventArgs();
-			IPChanched(sender, ef);
+			try
+			{
+				EventArgs ef = new EventArgs();
+				IPChanched(sender, ef);
+			}
+			catch (Exception) { }
 		}
 
 		private void FourthByte_TextChanged(object sender, EventArgs e)
 		{
 			if (FourthByte.Text == "") return;
-			CheckTextBox(FourthByte, fourd_min, fourd_max);
-			EventArgs ef = new EventArgs();
-			IPChanched(sender, ef);
+			CheckTextBoxLength(FourthByte, FourthByte);
+			try
+			{
+				EventArgs ef = new EventArgs();
+				IPChanched(sender, ef);
+			}
+			catch (Exception) { }
 		}
 
 		private void FirstByte_Leave(object sender, EventArgs e)

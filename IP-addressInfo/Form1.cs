@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,16 +48,16 @@ namespace IP_addressInfo
 		}
 		void GetClass()
 		{
-			if (ip_address[0] >= 1 && ip_address[1] <= 126 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'A';
-			if (ip_address[0] >= 128 && ip_address[1] <= 191 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'B';
-			if (ip_address[0] >= 192 && ip_address[1] <= 223 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'C';
-			if (ip_address[0] >= 224 && ip_address[1] <= 239 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'D';
-			if (ip_address[0] >= 240 && ip_address[1] <= 255 && ip_address[3] >= 0 && ip_address[3] <= 255 ) this.web_class = 'E';
+			if (ip_address[0] >= 1 && ip_address[0] <= 127) this.web_class = 'A';
+			if (ip_address[0] >= 128 && ip_address[0] <= 191) this.web_class = 'B';
+			if (ip_address[0] >= 192 && ip_address[0] <= 223) this.web_class = 'C';
+			if (ip_address[0] >= 224 && ip_address[0] <= 239) this.web_class = 'D';
+			if (ip_address[0] >= 240 && ip_address[0] <= 255) this.web_class = 'E';
 		}
 		private void tb_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)			
-				e.Handled = true;			
+				e.Handled = true;	
 		}
 
 		private void tb_FirstNum_TextChanged(object sender, EventArgs e)

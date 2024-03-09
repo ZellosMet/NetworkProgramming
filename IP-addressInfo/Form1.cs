@@ -19,6 +19,7 @@ namespace IP_addressInfo
 		public Form1()
 		{
 			InitializeComponent();
+			//l_Info.Text = "192.168.0.100";
 		}
 		void GetMask(string mask)
 		{
@@ -132,6 +133,10 @@ namespace IP_addressInfo
 				l_Info.Text += $"Класс сети: {this.web_class}";
 			}
 			else l_Info.Text = "Заполнены не все поля!";
+		}
+		private void ipAddressControl1_IPChanched(object sender, EventArgs e)
+		{
+			//l_Info.Text = ipAddressControl1.Text;
 		}
 	}
 }

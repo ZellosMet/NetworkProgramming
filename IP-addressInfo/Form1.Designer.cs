@@ -1,4 +1,6 @@
-﻿namespace IP_addressInfo
+﻿using System.ComponentModel;
+
+namespace IP_addressInfo
 {
 	partial class Form1
 	{
@@ -40,6 +42,10 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.b_Result = new System.Windows.Forms.Button();
 			this.b_clear = new System.Windows.Forms.Button();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.ipAddressControl1 = new IP_addressInfo.IPAddressControl();
+			this.button1 = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// l_Info
@@ -166,11 +172,49 @@
 			this.b_clear.UseVisualStyleBackColor = true;
 			this.b_clear.Click += new System.EventHandler(this.b_clear_Click);
 			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(247, 265);
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(53, 22);
+			this.numericUpDown1.TabIndex = 19;
+			// 
+			// ipAddressControl1
+			// 
+			this.ipAddressControl1.BackColor = System.Drawing.SystemColors.Window;
+			this.ipAddressControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.ipAddressControl1.FirstMax = 255;
+			this.ipAddressControl1.FirstMin = 0;
+			this.ipAddressControl1.FourdMax = 255;
+			this.ipAddressControl1.FourdMin = 0;
+			this.ipAddressControl1.Location = new System.Drawing.Point(28, 265);
+			this.ipAddressControl1.Name = "ipAddressControl1";
+			this.ipAddressControl1.SecondMax = 255;
+			this.ipAddressControl1.SecondMin = 0;
+			this.ipAddressControl1.Size = new System.Drawing.Size(180, 25);
+			this.ipAddressControl1.TabIndex = 18;
+			this.ipAddressControl1.Text = "...";
+			this.ipAddressControl1.ThirdMax = 255;
+			this.ipAddressControl1.ThirdMin = 0;
+			this.ipAddressControl1.IPChanched += new IP_addressInfo.EventHandler(this.ipAddressControl1_IPChanched);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(28, 228);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 20;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(388, 302);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.numericUpDown1);
+			this.Controls.Add(this.ipAddressControl1);
 			this.Controls.Add(this.b_clear);
 			this.Controls.Add(this.b_Result);
 			this.Controls.Add(this.label5);
@@ -185,6 +229,7 @@
 			this.Controls.Add(this.l_Info);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -203,6 +248,9 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button b_Result;
 		private System.Windows.Forms.Button b_clear;
+		private IPAddressControl ipAddressControl1;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Button button1;
 	}
 }
 

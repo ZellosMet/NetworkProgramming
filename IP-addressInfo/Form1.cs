@@ -81,17 +81,14 @@ namespace IP_addressInfo
 				if (Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) > 0 && Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) <= 127)
 				{
 					iac_Mask.TextIP = "255.0.0.0";
-					//nud_Prefix.Value = 8;
 				}
 				if (Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) >= 128 && Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) <= 191)
 				{
 					iac_Mask.TextIP = "255.255.0.0";
-					//nud_Prefix.Value = 16;
 				}
 				if (Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) >= 192 && Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) <= 223)
 				{
 					iac_Mask.TextIP = "255.255.255.0";
-					//nud_Prefix.Value = 24;
 				}
 			}
 		}

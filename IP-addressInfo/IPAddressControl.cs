@@ -21,6 +21,11 @@ namespace IP_addressInfo
 		int third_max = 255;
 		int fourd_min = 0;
 		int fourd_max = 255;
+
+		[EditorBrowsable(EditorBrowsableState.Always)]
+		[Browsable(true)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Bindable(true)]
 		public int FirstMin { get { return first_min; } set { first_min = value; } }
 		public int FirstMax { get { return first_max; } set { first_max = value; } }
 		public int SecondMin { get { return second_min; } set { second_min = value; } }
@@ -30,10 +35,6 @@ namespace IP_addressInfo
 		public int FourdMin { get { return fourd_min; } set { fourd_min = value; } }
 		public int FourdMax { get { return fourd_max; } set { fourd_max = value; } }
 
-		[EditorBrowsable(EditorBrowsableState.Always)]
-		[Browsable(true)]
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-		[Bindable(true)]
 		public string TextIP
 		{ 
 			get 

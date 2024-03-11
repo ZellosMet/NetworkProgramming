@@ -34,8 +34,9 @@ namespace IP_addressInfo
 			this.b_Result = new System.Windows.Forms.Button();
 			this.b_clear = new System.Windows.Forms.Button();
 			this.nud_Prefix = new System.Windows.Forms.NumericUpDown();
-			this.iac_IPAddress = new IP_addressInfo.IPAddressControl();
+			this.label1 = new System.Windows.Forms.Label();
 			this.iac_Mask = new IP_addressInfo.IPAddressControl();
+			this.iac_IPAddress = new IP_addressInfo.IPAddressControl();
 			((System.ComponentModel.ISupportInitialize)(this.nud_Prefix)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -90,24 +91,15 @@ namespace IP_addressInfo
             0});
 			this.nud_Prefix.ValueChanged += new System.EventHandler(this.nud_Prefix_ValueChanged);
 			// 
-			// iac_IPAddress
+			// label1
 			// 
-			this.iac_IPAddress.BackColor = System.Drawing.SystemColors.Window;
-			this.iac_IPAddress.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.iac_IPAddress.FirstMax = 255;
-			this.iac_IPAddress.FirstMin = 0;
-			this.iac_IPAddress.FourdMax = 255;
-			this.iac_IPAddress.FourdMin = 0;
-			this.iac_IPAddress.Location = new System.Drawing.Point(12, 12);
-			this.iac_IPAddress.Name = "iac_IPAddress";
-			this.iac_IPAddress.SecondMax = 255;
-			this.iac_IPAddress.SecondMin = 0;
-			this.iac_IPAddress.Size = new System.Drawing.Size(180, 25);
-			this.iac_IPAddress.TabIndex = 21;
-			this.iac_IPAddress.TextIP = "...";
-			this.iac_IPAddress.ThirdMax = 255;
-			this.iac_IPAddress.ThirdMin = 0;
-			this.iac_IPAddress.IPChanched += new IP_addressInfo.EventHandler(this.iac_IPAddress_IPChanched);
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.Location = new System.Drawing.Point(194, 61);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(12, 16);
+			this.label1.TabIndex = 23;
+			this.label1.Text = "/";
 			// 
 			// iac_Mask
 			// 
@@ -128,11 +120,31 @@ namespace IP_addressInfo
 			this.iac_Mask.ThirdMin = 0;
 			this.iac_Mask.IPChanched += new IP_addressInfo.EventHandler(this.iac_Mask_IPChanched);
 			// 
+			// iac_IPAddress
+			// 
+			this.iac_IPAddress.BackColor = System.Drawing.SystemColors.Window;
+			this.iac_IPAddress.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.iac_IPAddress.FirstMax = 255;
+			this.iac_IPAddress.FirstMin = 0;
+			this.iac_IPAddress.FourdMax = 255;
+			this.iac_IPAddress.FourdMin = 0;
+			this.iac_IPAddress.Location = new System.Drawing.Point(12, 12);
+			this.iac_IPAddress.Name = "iac_IPAddress";
+			this.iac_IPAddress.SecondMax = 255;
+			this.iac_IPAddress.SecondMin = 0;
+			this.iac_IPAddress.Size = new System.Drawing.Size(180, 25);
+			this.iac_IPAddress.TabIndex = 21;
+			this.iac_IPAddress.TextIP = "...";
+			this.iac_IPAddress.ThirdMax = 255;
+			this.iac_IPAddress.ThirdMin = 0;
+			this.iac_IPAddress.IPChanched += new IP_addressInfo.EventHandler(this.iac_IPAddress_IPChanched);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(388, 302);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.iac_Mask);
 			this.Controls.Add(this.iac_IPAddress);
 			this.Controls.Add(this.nud_Prefix);
@@ -154,6 +166,7 @@ namespace IP_addressInfo
 		private System.Windows.Forms.NumericUpDown nud_Prefix;
 		private IPAddressControl iac_IPAddress;
 		private IPAddressControl iac_Mask;
+		private System.Windows.Forms.Label label1;
 	}
 }
 

@@ -83,6 +83,15 @@ namespace IP_addressInfo
 			if (current_tb.Text.Length == 3 && current_tb.Focused)
 				next_tb.Focus();
 		}
+
+		void CheckCreateEvent(object sender)
+		{
+			if (IPChanched != null)
+			{
+				EventArgs ef = new EventArgs();
+				IPChanched(sender, ef);
+			}
+		}
 		/////////////////////////////////////////////////////////////
 
 		/////////////////////////// Events //////////////////////////
@@ -90,53 +99,28 @@ namespace IP_addressInfo
 		private void FirstByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(FirstByte, SecondByte);
-			try
-			{
-				EventArgs ef = new EventArgs();
-				IPChanched(sender, ef);
-			}
-			catch (Exception){}				
+			CheckCreateEvent(sender);			
 		}
-
 		private void SecondByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(SecondByte, ThirdByte);
-			try
-			{
-				EventArgs ef = new EventArgs();
-				IPChanched(sender, ef);
-			}
-			catch (Exception) { }
+			CheckCreateEvent(sender);
 		}
-
 		private void ThirdByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(ThirdByte, FourthByte);
-			try
-			{
-				EventArgs ef = new EventArgs();
-				IPChanched(sender, ef);
-			}
-			catch (Exception) { }
+			CheckCreateEvent(sender);
 		}
-
 		private void FourthByte_TextChanged(object sender, EventArgs e)
 		{
 			if (FourthByte.Text == "") return;
 			CheckTextBoxLength(FourthByte, FourthByte);
-			try
-			{
-				EventArgs ef = new EventArgs();
-				IPChanched(sender, ef);
-			}
-			catch (Exception) { }
+			CheckCreateEvent(sender);
 		}
-
 		private void FirstByte_Leave(object sender, EventArgs e)
 		{
 			CheckTextBox(FirstByte, first_min, first_max);
 		}
-
 		private void SecondByte_Leave(object sender, EventArgs e)
 		{
 			CheckTextBox(SecondByte, second_min, second_max);

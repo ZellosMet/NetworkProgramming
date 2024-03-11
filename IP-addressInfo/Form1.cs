@@ -118,11 +118,10 @@ namespace IP_addressInfo
 			}
 			iac_Mask.TextIP = $"{mask[0].ToString()}.{mask[1].ToString()}.{mask[2].ToString()}.{mask[3].ToString()}";
 		}
-
 		private void iac_Mask_IPChanched(object sender, EventArgs e)
 		{
-			//if (iac_Mask.TextIP.Split('.')[0].Length != 0 && iac_Mask.TextIP.Split('.')[1].Length != 0 && iac_Mask.TextIP.Split('.')[2].Length != 0 && iac_Mask.TextIP.Split('.')[3].Length != 0) return;
-			nud_Prefix.Value = CountBit(iac_Mask.TextIP.Split('.')[0]) + CountBit(iac_Mask.TextIP.Split('.')[1]) + CountBit(iac_Mask.TextIP.Split('.')[2]) + CountBit(iac_Mask.TextIP.Split('.')[3]);
+			if (iac_Mask.TextIP.Split('.')[0].Length != 0 && iac_Mask.TextIP.Split('.')[1].Length != 0 && iac_Mask.TextIP.Split('.')[2].Length != 0 && iac_Mask.TextIP.Split('.')[3].Length != 0)
+				nud_Prefix.Value = CountBit(iac_Mask.TextIP.Split('.')[0]) + CountBit(iac_Mask.TextIP.Split('.')[1]) + CountBit(iac_Mask.TextIP.Split('.')[2]) + CountBit(iac_Mask.TextIP.Split('.')[3]);
 		}
 	}
 }

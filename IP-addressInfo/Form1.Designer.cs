@@ -126,7 +126,7 @@ namespace IP_addressInfo
 			this.iac_Mask.TextIP = "...";
 			this.iac_Mask.ThirdMax = 255;
 			this.iac_Mask.ThirdMin = 0;
-			//this.iac_Mask.IPChanched += new IP_addressInfo.EventHandler(this.iac_Mask_IPChanched);
+			this.iac_Mask.IPChanched += new IP_addressInfo.EventHandler(this.iac_Mask_IPChanched);
 			// 
 			// Form1
 			// 

@@ -30,12 +30,26 @@ namespace IP_addressInfo
 			if (ip_address[0] >= 224 && ip_address[0] <= 239) this.web_class = 'D';
 			if (ip_address[0] >= 240 && ip_address[0] <= 255) this.web_class = 'E';
 		}
+		int CountBit(string number)
+		{
+			int count = 0;
+			int n = Convert.ToInt32(number);
+			while (n > 0)
+			{
+				if (n % 2 == 1)
+					count++;
+				n = n >> 1;
+			}
+			return count;
+		}
 
 		private void b_clear_Click(object sender, EventArgs e)
 		{
 			nud_Prefix.Value = 1;
 			iac_IPAddress.TextIP = "...";
 			iac_Mask.TextIP = "...";
+			nud_Prefix.Value = 1;
+			l_Info.Text = "";
 		}
 
 		private void b_Result_Click(object sender, EventArgs e)
@@ -67,17 +81,17 @@ namespace IP_addressInfo
 				if (Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) > 0 && Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) <= 127)
 				{
 					iac_Mask.TextIP = "255.0.0.0";
-					nud_Prefix.Value = 8;
+					//nud_Prefix.Value = 8;
 				}
 				if (Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) >= 128 && Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) <= 191)
 				{
 					iac_Mask.TextIP = "255.255.0.0";
-					nud_Prefix.Value = 16;
+					//nud_Prefix.Value = 16;
 				}
 				if (Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) >= 192 && Convert.ToInt32(iac_IPAddress.TextIP.Split('.')[0]) <= 223)
 				{
 					iac_Mask.TextIP = "255.255.255.0";
-					nud_Prefix.Value = 24;
+					//nud_Prefix.Value = 24;
 				}
 			}
 		}
@@ -106,6 +120,12 @@ namespace IP_addressInfo
 				this.invert_mask[i] = Convert.ToInt32(ims.Split('.')[i], 2);
 			}
 			iac_Mask.TextIP = $"{mask[0].ToString()}.{mask[1].ToString()}.{mask[2].ToString()}.{mask[3].ToString()}";
+		}
+
+		private void iac_Mask_IPChanched(object sender, EventArgs e)
+		{
+			//if (iac_Mask.TextIP.Split('.')[0].Length != 0 && iac_Mask.TextIP.Split('.')[1].Length != 0 && iac_Mask.TextIP.Split('.')[2].Length != 0 && iac_Mask.TextIP.Split('.')[3].Length != 0) return;
+			nud_Prefix.Value = CountBit(iac_Mask.TextIP.Split('.')[0]) + CountBit(iac_Mask.TextIP.Split('.')[1]) + CountBit(iac_Mask.TextIP.Split('.')[2]) + CountBit(iac_Mask.TextIP.Split('.')[3]);
 		}
 	}
 }

@@ -53,10 +53,24 @@ namespace IP_addressInfo
 		}
 		[Browsable(true)]
 		public event EventHandler IPChanched;
+		public event EventHandler IPLeave;
+		public event EventHandler IPEnter;
 
-	new protected virtual void TextChanged(EventArgs e)
+		new protected virtual void TextChanged(EventArgs e)
 		{
 			EventHandler eh = IPChanched;
+			if (eh != null)
+				eh(this, e);
+		}
+		new protected virtual void OnLeave(EventArgs e)
+		{
+			EventHandler eh = IPLeave;
+			if (eh != null)
+				eh(this, e);
+		}
+		new protected virtual void OnEnter(EventArgs e)
+		{
+			EventHandler eh = IPEnter;
 			if (eh != null)
 				eh(this, e);
 		}
@@ -83,14 +97,35 @@ namespace IP_addressInfo
 			if (current_tb.Text.Length == 3 && current_tb.Focused)
 				next_tb.Focus();
 		}
-
-		void CheckCreateEvent(object sender)
+		void CheckCreateEventIPChanched(object sender)
 		{
 			if (IPChanched != null)
 			{
 				EventArgs ef = new EventArgs();
 				IPChanched(sender, ef);
 			}
+		}
+		void CheckCreateEventIPLeave(object sender)
+		{
+			if (IPLeave != null)
+			{
+				EventArgs ef = new EventArgs();
+				IPLeave(sender, ef);
+			}
+		}
+		void CheckCreateEventIPEnter(object sender)
+		{
+			if (IPEnter != null)
+			{
+				EventArgs ef = new EventArgs();
+				IPEnter(sender, ef);
+			}
+		}
+		public bool CheckFillIPAddress()
+		{ 
+			if(FirstByte.Text.Length != 0 && SecondByte.Text.Length != 0 && ThirdByte.Text.Length != 0 && FourthByte.Text.Length != 0)
+				return true;
+			return false;
 		}
 		/////////////////////////////////////////////////////////////
 
@@ -99,23 +134,23 @@ namespace IP_addressInfo
 		private void FirstByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(FirstByte, SecondByte);
-			CheckCreateEvent(sender);			
+			CheckCreateEventIPChanched(sender);			
 		}
 		private void SecondByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(SecondByte, ThirdByte);
-			CheckCreateEvent(sender);
+			CheckCreateEventIPChanched(sender);
 		}
 		private void ThirdByte_TextChanged(object sender, EventArgs e)
 		{
 			CheckTextBoxLength(ThirdByte, FourthByte);
-			CheckCreateEvent(sender);
+			CheckCreateEventIPChanched(sender);
 		}
 		private void FourthByte_TextChanged(object sender, EventArgs e)
 		{
 			if (FourthByte.Text == "") return;
 			CheckTextBoxLength(FourthByte, FourthByte);
-			CheckCreateEvent(sender);
+			CheckCreateEventIPChanched(sender);
 		}
 		private void FirstByte_Leave(object sender, EventArgs e)
 		{
@@ -132,6 +167,16 @@ namespace IP_addressInfo
 		private void FourthByte_Leave(object sender, EventArgs e)
 		{
 			CheckTextBox(FourthByte, fourd_min, fourd_max);
+		}
+
+		private void IPAddressControl_Leave(object sender, EventArgs e)
+		{
+			CheckCreateEventIPLeave(sender);
+		}
+
+		private void IPAddressControl_Enter(object sender, EventArgs e)
+		{
+			CheckCreateEventIPEnter(sender);
 		}
 		///////////////////////////////////////////////////////////////
 	}

@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace IP_addressInfo
 {
@@ -122,6 +123,12 @@ namespace IP_addressInfo
 		{
 			if (iac_Mask.TextIP.Split('.')[0].Length != 0 && iac_Mask.TextIP.Split('.')[1].Length != 0 && iac_Mask.TextIP.Split('.')[2].Length != 0 && iac_Mask.TextIP.Split('.')[3].Length != 0)
 				nud_Prefix.Value = CountBit(iac_Mask.TextIP.Split('.')[0]) + CountBit(iac_Mask.TextIP.Split('.')[1]) + CountBit(iac_Mask.TextIP.Split('.')[2]) + CountBit(iac_Mask.TextIP.Split('.')[3]);
+		}
+
+		private void b_IPTest_Click(object sender, EventArgs e)
+		{
+			PingTest ping_test = new PingTest();
+			ping_test.Show();
 		}
 	}
 }

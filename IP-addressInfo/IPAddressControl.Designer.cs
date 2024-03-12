@@ -140,6 +140,8 @@ namespace IP_addressInfo
 			this.Controls.Add(this.FirstByte);
 			this.Name = "IPAddressControl";
 			this.Size = new System.Drawing.Size(180, 25);
+			this.Enter += new System.EventHandler(this.IPAddressControl_Enter);
+			this.Leave += new System.EventHandler(this.IPAddressControl_Leave);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

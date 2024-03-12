@@ -37,13 +37,14 @@ namespace IP_addressInfo
 			this.label1 = new System.Windows.Forms.Label();
 			this.iac_Mask = new IP_addressInfo.IPAddressControl();
 			this.iac_IPAddress = new IP_addressInfo.IPAddressControl();
+			this.b_IPTest = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.nud_Prefix)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// l_Info
 			// 
 			this.l_Info.AutoSize = true;
-			this.l_Info.Location = new System.Drawing.Point(12, 98);
+			this.l_Info.Location = new System.Drawing.Point(9, 118);
 			this.l_Info.Name = "l_Info";
 			this.l_Info.Size = new System.Drawing.Size(0, 16);
 			this.l_Info.TabIndex = 1;
@@ -139,11 +140,22 @@ namespace IP_addressInfo
 			this.iac_IPAddress.ThirdMin = 0;
 			this.iac_IPAddress.IPChanched += new IP_addressInfo.EventHandler(this.iac_IPAddress_IPChanched);
 			// 
+			// b_IPTest
+			// 
+			this.b_IPTest.Location = new System.Drawing.Point(291, 98);
+			this.b_IPTest.Name = "b_IPTest";
+			this.b_IPTest.Size = new System.Drawing.Size(85, 23);
+			this.b_IPTest.TabIndex = 24;
+			this.b_IPTest.Text = "IP Test";
+			this.b_IPTest.UseVisualStyleBackColor = true;
+			this.b_IPTest.Click += new System.EventHandler(this.b_IPTest_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(388, 302);
+			this.Controls.Add(this.b_IPTest);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.iac_Mask);
 			this.Controls.Add(this.iac_IPAddress);
@@ -167,6 +179,7 @@ namespace IP_addressInfo
 		private IPAddressControl iac_IPAddress;
 		private IPAddressControl iac_Mask;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button b_IPTest;
 	}
 }
 

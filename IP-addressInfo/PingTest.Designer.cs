@@ -35,30 +35,35 @@
 			this.ch_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ch_PacketsSend = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ch_PacketsReceived = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.ch_PacketsLost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.iac_IP = new IP_addressInfo.IPAddressControl();
+			this.ch_PacketsLostPercent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tb_URL = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.b_AddHost = new System.Windows.Forms.Button();
 			this.b_DeleteHost = new System.Windows.Forms.Button();
 			this.t_Refresh = new System.Windows.Forms.Timer(this.components);
+			this.ch_PacketsLost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.iac_IP = new IP_addressInfo.IPAddressControl();
 			this.SuspendLayout();
 			// 
 			// lv_HostList
 			// 
+			this.lv_HostList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.lv_HostList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ch_HostIP,
             this.ch_HostName,
             this.ch_Time,
             this.ch_PacketsSend,
             this.ch_PacketsReceived,
-            this.ch_PacketsLost});
+            this.ch_PacketsLost,
+            this.ch_PacketsLostPercent});
 			this.lv_HostList.FullRowSelect = true;
 			this.lv_HostList.HideSelection = false;
 			this.lv_HostList.Location = new System.Drawing.Point(12, 74);
 			this.lv_HostList.Name = "lv_HostList";
-			this.lv_HostList.Size = new System.Drawing.Size(776, 364);
+			this.lv_HostList.Size = new System.Drawing.Size(998, 364);
 			this.lv_HostList.TabIndex = 0;
 			this.lv_HostList.UseCompatibleStateImageBehavior = false;
 			this.lv_HostList.View = System.Windows.Forms.View.Details;
@@ -71,7 +76,7 @@
 			// ch_HostName
 			// 
 			this.ch_HostName.Text = "Host Name";
-			this.ch_HostName.Width = 135;
+			this.ch_HostName.Width = 160;
 			// 
 			// ch_Time
 			// 
@@ -81,42 +86,25 @@
 			// ch_PacketsSend
 			// 
 			this.ch_PacketsSend.Text = "Packets Send";
-			this.ch_PacketsSend.Width = 139;
+			this.ch_PacketsSend.Width = 106;
 			// 
 			// ch_PacketsReceived
 			// 
 			this.ch_PacketsReceived.Text = "Packets Received";
-			this.ch_PacketsReceived.Width = 141;
+			this.ch_PacketsReceived.Width = 131;
 			// 
-			// ch_PacketsLost
+			// ch_PacketsLostPercent
 			// 
-			this.ch_PacketsLost.Text = "Packets Lost(%)";
-			this.ch_PacketsLost.Width = 123;
-			// 
-			// iac_IP
-			// 
-			this.iac_IP.BackColor = System.Drawing.SystemColors.Window;
-			this.iac_IP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.iac_IP.FirstMax = 255;
-			this.iac_IP.FirstMin = 0;
-			this.iac_IP.FourdMax = 255;
-			this.iac_IP.FourdMin = 0;
-			this.iac_IP.Location = new System.Drawing.Point(15, 26);
-			this.iac_IP.Name = "iac_IP";
-			this.iac_IP.SecondMax = 255;
-			this.iac_IP.SecondMin = 0;
-			this.iac_IP.Size = new System.Drawing.Size(180, 25);
-			this.iac_IP.TabIndex = 1;
-			this.iac_IP.TextIP = "...";
-			this.iac_IP.ThirdMax = 255;
-			this.iac_IP.ThirdMin = 0;
-			this.iac_IP.Enter += new System.EventHandler(this.iac_IP_Enter);
+			this.ch_PacketsLostPercent.Text = "Packets Lost Percent";
+			this.ch_PacketsLostPercent.Width = 147;
 			// 
 			// tb_URL
 			// 
-			this.tb_URL.Location = new System.Drawing.Point(211, 29);
+			this.tb_URL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tb_URL.Location = new System.Drawing.Point(211, 30);
 			this.tb_URL.Name = "tb_URL";
-			this.tb_URL.Size = new System.Drawing.Size(404, 22);
+			this.tb_URL.Size = new System.Drawing.Size(637, 22);
 			this.tb_URL.TabIndex = 2;
 			this.tb_URL.Enter += new System.EventHandler(this.tb_URL_Enter);
 			// 
@@ -140,7 +128,8 @@
 			// 
 			// b_AddHost
 			// 
-			this.b_AddHost.Location = new System.Drawing.Point(632, 28);
+			this.b_AddHost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.b_AddHost.Location = new System.Drawing.Point(854, 29);
 			this.b_AddHost.Name = "b_AddHost";
 			this.b_AddHost.Size = new System.Drawing.Size(75, 23);
 			this.b_AddHost.TabIndex = 5;
@@ -150,7 +139,8 @@
 			// 
 			// b_DeleteHost
 			// 
-			this.b_DeleteHost.Location = new System.Drawing.Point(713, 28);
+			this.b_DeleteHost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.b_DeleteHost.Location = new System.Drawing.Point(935, 29);
 			this.b_DeleteHost.Name = "b_DeleteHost";
 			this.b_DeleteHost.Size = new System.Drawing.Size(75, 23);
 			this.b_DeleteHost.TabIndex = 6;
@@ -163,11 +153,35 @@
 			this.t_Refresh.Interval = 1000;
 			this.t_Refresh.Tick += new System.EventHandler(this.t_Refresh_Tick);
 			// 
+			// ch_PacketsLost
+			// 
+			this.ch_PacketsLost.Text = "Packets Lost";
+			this.ch_PacketsLost.Width = 91;
+			// 
+			// iac_IP
+			// 
+			this.iac_IP.BackColor = System.Drawing.SystemColors.Window;
+			this.iac_IP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.iac_IP.FirstMax = 255;
+			this.iac_IP.FirstMin = 0;
+			this.iac_IP.FourdMax = 255;
+			this.iac_IP.FourdMin = 0;
+			this.iac_IP.Location = new System.Drawing.Point(15, 27);
+			this.iac_IP.Name = "iac_IP";
+			this.iac_IP.SecondMax = 255;
+			this.iac_IP.SecondMin = 0;
+			this.iac_IP.Size = new System.Drawing.Size(180, 25);
+			this.iac_IP.TabIndex = 1;
+			this.iac_IP.TextIP = "...";
+			this.iac_IP.ThirdMax = 255;
+			this.iac_IP.ThirdMin = 0;
+			this.iac_IP.Enter += new System.EventHandler(this.iac_IP_Enter);
+			// 
 			// PingTest
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1022, 450);
 			this.Controls.Add(this.b_DeleteHost);
 			this.Controls.Add(this.b_AddHost);
 			this.Controls.Add(this.label2);
@@ -197,7 +211,8 @@
 		private System.Windows.Forms.ColumnHeader ch_Time;
 		private System.Windows.Forms.ColumnHeader ch_PacketsSend;
 		private System.Windows.Forms.ColumnHeader ch_PacketsReceived;
-		private System.Windows.Forms.ColumnHeader ch_PacketsLost;
+		private System.Windows.Forms.ColumnHeader ch_PacketsLostPercent;
 		private System.Windows.Forms.Timer t_Refresh;
+		private System.Windows.Forms.ColumnHeader ch_PacketsLost;
 	}
 }

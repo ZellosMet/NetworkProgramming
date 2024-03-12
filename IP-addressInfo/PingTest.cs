@@ -32,16 +32,17 @@ namespace IP_addressInfo
 		private async void b_AddHost_Click(object sender, EventArgs e)
 		{
 			ListViewItem lvi = null;
-			IPAddress address = null;
 			int packets_send = 0;
 			int packets_recv = 0;
 			int packets_lost = 0;
+			int packets_lost_percent = 0;
 			string time;
 			string host_name = "";
 			string[] host_info = null;
+			string ip = "";
 
 			if(iac_IP.CheckFillIPAddress())
-				ip_address = iac_IP.TextIP;
+				ip_address = ip = iac_IP.TextIP;
 			else if(tb_URL.Text.Length != 0)
 				ip_address = tb_URL.Text;
 			else return;
@@ -55,13 +56,18 @@ namespace IP_addressInfo
 				time = ping_reply.RoundtripTime > 1000 ? ">1000" : ping_reply.RoundtripTime.ToString();
 				packets_recv++;
 			}
-			else time = "Request timed out";
-			packets_lost = 100 * (packets_send - packets_recv) / packets_send;
+			else
+			{ 
+				time = "Request timed out";
+				ip_address = ip;
+				packets_lost++;
+			}
+			packets_lost_percent = 100 * (packets_lost) / packets_send;
 			if (iac_IP.CheckFillIPAddress() || tb_URL.Text.Length != 0)
 			{
 				if (tb_URL.Text.Length != 0)
 					host_name = tb_URL.Text;
-				host_info = new string[] { ip_address, host_name, time, packets_send.ToString(), packets_recv.ToString(), packets_lost.ToString() };
+				host_info = new string[] { ip_address, host_name, time, packets_send.ToString(), packets_recv.ToString(), packets_lost.ToString(), packets_lost_percent.ToString() };
 				lvi = new ListViewItem(host_info);
 				lv_HostList.Items.Add(lvi);
 			}
@@ -78,10 +84,14 @@ namespace IP_addressInfo
 				if (ping_reply.Status == IPStatus.Success)
 				{
 					lv_HostList.Items[i].SubItems[2].Text = ping_reply.RoundtripTime > 1000 ? ">1000" : ping_reply.RoundtripTime.ToString();
-					lv_HostList.Items[i].SubItems[4].Text = Convert.ToString(Convert.ToInt32(lv_HostList.Items[i].SubItems[4].Text)+1);
+					lv_HostList.Items[i].SubItems[4].Text = Convert.ToString(Convert.ToInt32(lv_HostList.Items[i].SubItems[4].Text) + 1);
 				}
-				else lv_HostList.Items[i].SubItems[2].Text = "Request timed out";
-				lv_HostList.Items[i].SubItems[5].Text = Convert.ToString(100*(Convert.ToInt32(lv_HostList.Items[i].SubItems[3].Text) - Convert.ToInt32(lv_HostList.Items[i].SubItems[4].Text)) / Convert.ToInt32(lv_HostList.Items[i].SubItems[3].Text));
+				else
+				{ 
+					lv_HostList.Items[i].SubItems[2].Text = "Request timed out";
+					lv_HostList.Items[i].SubItems[5].Text = Convert.ToString(Convert.ToInt32(lv_HostList.Items[i].SubItems[5].Text) + 1);
+				}
+				lv_HostList.Items[i].SubItems[6].Text = Convert.ToString(100 * Convert.ToInt32(lv_HostList.Items[i].SubItems[5].Text) / Convert.ToInt32(lv_HostList.Items[i].SubItems[3].Text));
 			}
 		}
 		private async void t_Refresh_Tick(object sender, EventArgs e)
